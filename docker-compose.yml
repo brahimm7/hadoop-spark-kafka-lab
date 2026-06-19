@@ -1,0 +1,59 @@
+services:
+  hadoop-master:
+    image: brahimm11/bigdata-cluster:1.0
+    container_name: hadoop-master
+    hostname: hadoop-master
+    ports:
+      - "9870:9870"
+      - "8088:8088"
+      - "8080:8080"
+      - "7077:7077"
+      - "9092:9092"
+      - "2181:2181"
+    networks:
+      bigdata-net:
+        ipv4_address: 172.98.0.2
+    volumes:
+      - master_data:/usr/local/hadoop/hadoop_data
+    stdin_open: true
+    tty: true
+
+  hadoop-slave1:
+    image: brahimm11/bigdata-cluster:1.0
+    container_name: hadoop-slave1
+    hostname: hadoop-slave1
+    ports:
+      - "8081:8081"
+    networks:
+      bigdata-net:
+        ipv4_address: 172.98.0.3
+    volumes:
+      - slave1_data:/usr/local/hadoop/hadoop_data
+    stdin_open: true
+    tty: true
+
+  hadoop-slave2:
+    image: brahimm11/bigdata-cluster:1.0
+    container_name: hadoop-slave2
+    hostname: hadoop-slave2
+    ports:
+      - "8082:8081"
+    networks:
+      bigdata-net:
+        ipv4_address: 172.98.0.4
+    volumes:
+      - slave2_data:/usr/local/hadoop/hadoop_data
+    stdin_open: true
+    tty: true
+
+networks:
+  bigdata-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.98.0.0/16
+
+volumes:
+  master_data:
+  slave1_data:
+  slave2_data:
