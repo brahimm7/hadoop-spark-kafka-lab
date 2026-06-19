@@ -1,3 +1,12 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/brahimm11/bigdata-cluster?style=flat-for-the-badge&logo=docker)](https://hub.docker.com/r/brahimm11/bigdata-cluster)
+
+> **🚀 Pre-built Container Image Available:** The fully configured, optimized cluster base image for this lab environment is published and publicly available on Docker Hub at [brahimm11/bigdata-cluster:1.0](https://hub.docker.com/r/brahimm11/bigdata-cluster).
+
+### ⚡ Quick Image Pull
+To pull the compiled image directly from the registry without building the Dockerfile manually:
+```bash
+docker pull brahimm11/bigdata-cluster:1.0
+
 # Distributed Multi-Node Big Data Cluster (Hadoop 3.4.3 / Spark 3.5.1 / Kafka 3.7.0)
 
 This repository contains the complete infrastructure orchestration code to deploy a fully functional, multi-node Big Data cluster environment using Docker. The architecture splits workloads across a dedicated coordinator Master node and two independent Worker/Slave nodes, utilizing secure internal SSH keys for automated cross-daemon communication.
